@@ -1,137 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <header id="contentHeader">
-        <i class="fa-brands fa-evernote" style="color: rgb(94, 177, 255);"></i>
-        <span>Organ</span>
-        <div id="boardName">
-            Project 1
-        </div>
-        <div id="boardDate">
-            28 Mar 26
-        </div>
-        <i class="fa-solid fa-feather-pointed"></i>
-        <i class="fa-solid fa-sun"></i>
+      <i class="fa-brands fa-evernote" style="color: rgb(94, 177, 255)"></i>
+      <span>Organ</span>
+      <div id="boardName">Project 1</div>
+      <input id="renamer" placeholder="Rename your Board"></input>
+      <i class="fa-solid fa-feather-pointed" id="renameIcon"></i>
+      <div id="boardDate">28 Mar 26</div>
+      <i class="fa-solid fa-moon" id="mode"></i>
     </header>
     <div id="board">
-        <div id="to-do" class="genre" ondragover="allowDrop(event)" ondrop="drop(event)">
-
-            <div class="classHead">
-                <i class="fa-solid fa-circle" id="indi1"></i>
-                <span class="classHeadText">To - Do</span>
-            </div>
-
-            <div class="cardContainer">
-                <div class="card" draggable="true ">
-                    <div class="cardTag">
-                        <span class="TagName">Feature</span>
-                        <span class="X"><i class="fa-solid fa-xmark"></i></span>
-                    </div>
-                    <div class="cardName">Update Landing Page</div>
-                    <span class="cardDesc">Change UI Elements</span>
-                    <div class="cardDet">
-                        <span class="priority">
-                            <i class="fa-solid fa-circle-info"></i>
-                            High
-                        </span>
-                        <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-                    </div>
-                </div>
-                <div class="card" draggable="true ">
-                    <div class="cardTag">
-                        <span class="TagName">Feature</span>
-                        <span class="X"><i class="fa-solid fa-xmark"></i></span>
-                    </div>
-                    <div class="cardName">Update Landing Page</div>
-                    <span class="cardDesc">Change UI Elements</span>
-                    <div class="cardDet">
-                        <span class="priority">
-                            <i class="fa-solid fa-circle-info"></i>
-                            High
-                        </span>
-                        <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-                    </div>
-                </div>
-                <div class="card" draggable="true ">
-                    <div class="cardTag">
-                        <span class="TagName">Feature</span>
-                        <span class="X"><i class="fa-solid fa-xmark"></i></span>
-                    </div>
-                    <div class="cardName">Update Landing Page</div>
-                    <span class="cardDesc">Change UI Elements</span>
-                    <div class="cardDet">
-                        <span class="priority">
-                            <i class="fa-solid fa-circle-info"></i>
-                            High
-                        </span>
-                        <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-                    </div>
-                </div>
-                <div class="card" draggable="true ">
-                    <div class="cardTag">
-                        <span class="TagName">Feature</span>
-                        <span class="X"><i class="fa-solid fa-xmark"></i></span>
-                    </div>
-                    <div class="cardName">Update Landing Page</div>
-                    <span class="cardDesc">Change UI Elements</span>
-                    <div class="cardDet">
-                        <span class="priority">
-                            <i class="fa-solid fa-circle-info"></i>
-                            High
-                        </span>
-                        <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-                    </div>
-                </div>
-                <div class="card" draggable="true ">
-                    <div class="cardTag">
-                        <span class="TagName">Feature</span>
-                        <span class="X"><i class="fa-solid fa-xmark"></i></span>
-                    </div>
-                    <div class="cardName">Update Landing Page</div>
-                    <span class="cardDesc">Change UI Elements</span>
-                    <div class="cardDet">
-                        <span class="priority">
-                            <i class="fa-solid fa-circle-info"></i>
-                            High
-                        </span>
-                        <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="classFoot">
-                <i class="fa-solid fa-plus"></i>
-                <span class="classFootText">Add a card</span>
-            </div>
+      <div
+        id="to-do"
+        class="genre"
+        ondragover="allowDrop(event)"
+        ondrop="drop(event)"
+      >
+        <div class="classHead">
+          <i class="fa-solid fa-circle" id="indi1"></i>
+          <span class="classHeadText">To - Do</span>
         </div>
 
-        <div id="in-progress" class="genre">
-            <div class="classHead">
-                <i class="fa-solid fa-circle" id="indi2"></i>
-                <span class="classHeadText">In - Progress</span>
+        <div class="cardContainer">
+          <div class="card" draggable="true ">
+            <div class="cardTag">
+              <span class="TagName">Feature</span>
+              <span class="X"><i class="fa-solid fa-xmark"></i></span>
             </div>
-            <div class="classFoot">
-                <i class="fa-solid fa-plus"></i>
-                <span class="classFootText">Add a card</span>
+            <div class="cardName">Update Landing Page</div>
+            <span class="cardDesc">Change UI Elements</span>
+            <div class="cardDet">
+              <span class="priority">
+                <i class="fa-solid fa-circle-info"></i>
+                High
+              </span>
+              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
             </div>
+          </div>
+          <div class="card" draggable="true ">
+            <div class="cardTag">
+              <span class="TagName">Feature</span>
+              <span class="X"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="cardName">Update Landing Page</div>
+            <span class="cardDesc">Change UI Elements</span>
+            <div class="cardDet">
+              <span class="priority">
+                <i class="fa-solid fa-circle-info"></i>
+                High
+              </span>
+              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
+            </div>
+          </div>
+          <div class="card" draggable="true ">
+            <div class="cardTag">
+              <span class="TagName">Feature</span>
+              <span class="X"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="cardName">Update Landing Page</div>
+            <span class="cardDesc">Change UI Elements</span>
+            <div class="cardDet">
+              <span class="priority">
+                <i class="fa-solid fa-circle-info"></i>
+                High
+              </span>
+              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
+            </div>
+          </div>
+          <div class="card" draggable="true ">
+            <div class="cardTag">
+              <span class="TagName">Feature</span>
+              <span class="X"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="cardName">Update Landing Page</div>
+            <span class="cardDesc">Change UI Elements</span>
+            <div class="cardDet">
+              <span class="priority">
+                <i class="fa-solid fa-circle-info"></i>
+                High
+              </span>
+              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
+            </div>
+          </div>
+          <div class="card" draggable="true ">
+            <div class="cardTag">
+              <span class="TagName">Feature</span>
+              <span class="X"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="cardName">Update Landing Page</div>
+            <span class="cardDesc">Change UI Elements</span>
+            <div class="cardDet">
+              <span class="priority">
+                <i class="fa-solid fa-circle-info"></i>
+                High
+              </span>
+              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
+            </div>
+          </div>
         </div>
-        <div id="done" class="genre">
-            <div class="classHead">
-                <i class="fa-solid fa-circle" id="indi3"></i>
-                <span class="classHeadText">Done</span>
-            </div>
-            <div class="classFoot">
-                <i class="fa-solid fa-plus"></i>
-                <span class="classFootText">Add a card</span>
-            </div>
+
+        <div class="classFoot">
+          <i class="fa-solid fa-plus"></i>
+          <span class="classFootText">Add a card</span>
         </div>
+      </div>
+
+      <div id="in-progress" class="genre">
+        <div class="classHead">
+          <i class="fa-solid fa-circle" id="indi2"></i>
+          <span class="classHeadText">In - Progress</span>
+        </div>
+        <div class="classFoot">
+          <i class="fa-solid fa-plus"></i>
+          <span class="classFootText">Add a card</span>
+        </div>
+      </div>
+      <div id="done" class="genre">
+        <div class="classHead">
+          <i class="fa-solid fa-circle" id="indi3"></i>
+          <span class="classHeadText">Done</span>
+        </div>
+        <div class="classFoot">
+          <i class="fa-solid fa-plus"></i>
+          <span class="classFootText">Add a card</span>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
+  <script src="index.js"></script>
 </html>
