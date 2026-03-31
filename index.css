@@ -7,16 +7,24 @@ body {
   height: 2.5em;
   width: 100%;
   box-sizing: border-box;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 1.1em;
   z-index: 1;
-  background-color: #4c4c4c;
   backdrop-filter: blur(5px);
   padding: 0 0.5em;
   gap: 1em;
+}
+
+.darkHeader {
+  background-color: #4c4c4c;
+  color: white;
+}
+
+.lightHeader {
+  background-color: #dbdbdb;
+  color: black;
 }
 
 #boardName {
@@ -24,7 +32,6 @@ body {
 }
 
 #board {
-  background-color: #2f2f2f;
   background-size: cover;
   background-position: center;
   height: 95.5vh;
@@ -33,17 +40,34 @@ body {
   justify-content: space-evenly;
 }
 
+.darkBoard {
+  background-color: #2f2f2f;
+}
+
+.lightBoard {
+  background-color: #fff;
+}
+
 .genre {
   width: 31%;
   height: 92%;
   margin: 1em 0.5em;
   padding: 1em;
-  background-color: #1f1f1f;
   backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
+}
+
+.genreDark {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.genreLight {
+  background-color: #cfcfcf;
+  color: black;
 }
 
 .classHead {
@@ -73,8 +97,6 @@ body {
 }
 
 .classFoot {
-  background-color: #3f3f3f;
-  color: white;
   padding: 1em;
   display: flex;
   align-items: center;
@@ -107,14 +129,22 @@ body {
   flex-shrink: 0;
   box-sizing: border-box;
   padding: 1em;
-  background-color: #2f2f2f;
-  color: white;
   height: 30%;
   width: 100%;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.cardDark {
+  background-color: #2f2f2f;
+  color: white;
+}
+
+.cardLight {
+  background-color: #fff;
+  color: black;
 }
 
 .cardTag {
@@ -164,7 +194,6 @@ body {
 }
 
 #renamer {
-  background-color: #1f1f1f;
   color: white;
   height: 80%;
   box-sizing: border-box;
@@ -175,6 +204,30 @@ body {
   outline: none;
 }
 
-.classFoot:hover {
+.renamerDark {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.renamerLight {
+  background-color: #fff;
+  color: black;
+}
+
+.darkFoot {
+  background-color: #3f3f3f;
+  color: white;
+}
+
+.darkFoot:hover {
   background-color: #747474;
+}
+
+.lightFoot {
+  background-color: #b9b9b9;
+  color: #000;
+}
+
+.lightFoot:hover {
+  background-color: #919191;
 }

@@ -14,89 +14,24 @@
     />
   </head>
   <body>
-    <header id="contentHeader">
+    <header id="contentHeader" class="darkHeader">
       <i class="fa-brands fa-evernote" style="color: rgb(94, 177, 255)"></i>
       <span>Organ</span>
       <div id="boardName">Project 1</div>
-      <input id="renamer" placeholder="Rename your Board"></input>
+      <input id="renamer" class="renamerDark" placeholder="Rename your Board"></input>
       <i class="fa-solid fa-feather-pointed" id="renameIcon"></i>
       <div id="boardDate">28 Mar 26</div>
       <i class="fa-solid fa-moon" id="mode"></i>
     </header>
-    <div id="board">
-      <div
-        id="to-do"
-        class="genre"
-        ondragover="allowDrop(event)"
-        ondrop="drop(event)"
-      >
+    <div id="board" class="darkBoard">
+      <div id="to-do" class="genre genreDark">
         <div class="classHead">
           <i class="fa-solid fa-circle" id="indi1"></i>
           <span class="classHeadText">To - Do</span>
         </div>
 
         <div class="cardContainer">
-          <div class="card" draggable="true ">
-            <div class="cardTag">
-              <span class="TagName">Feature</span>
-              <span class="X"><i class="fa-solid fa-xmark"></i></span>
-            </div>
-            <div class="cardName">Update Landing Page</div>
-            <span class="cardDesc">Change UI Elements</span>
-            <div class="cardDet">
-              <span class="priority">
-                <i class="fa-solid fa-circle-info"></i>
-                High
-              </span>
-              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-            </div>
-          </div>
-          <div class="card" draggable="true ">
-            <div class="cardTag">
-              <span class="TagName">Feature</span>
-              <span class="X"><i class="fa-solid fa-xmark"></i></span>
-            </div>
-            <div class="cardName">Update Landing Page</div>
-            <span class="cardDesc">Change UI Elements</span>
-            <div class="cardDet">
-              <span class="priority">
-                <i class="fa-solid fa-circle-info"></i>
-                High
-              </span>
-              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-            </div>
-          </div>
-          <div class="card" draggable="true ">
-            <div class="cardTag">
-              <span class="TagName">Feature</span>
-              <span class="X"><i class="fa-solid fa-xmark"></i></span>
-            </div>
-            <div class="cardName">Update Landing Page</div>
-            <span class="cardDesc">Change UI Elements</span>
-            <div class="cardDet">
-              <span class="priority">
-                <i class="fa-solid fa-circle-info"></i>
-                High
-              </span>
-              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-            </div>
-          </div>
-          <div class="card" draggable="true ">
-            <div class="cardTag">
-              <span class="TagName">Feature</span>
-              <span class="X"><i class="fa-solid fa-xmark"></i></span>
-            </div>
-            <div class="cardName">Update Landing Page</div>
-            <span class="cardDesc">Change UI Elements</span>
-            <div class="cardDet">
-              <span class="priority">
-                <i class="fa-solid fa-circle-info"></i>
-                High
-              </span>
-              <span class="assigne">Amit, Suresh, Rakesh, Mahesh</span>
-            </div>
-          </div>
-          <div class="card" draggable="true ">
+          <div class="card cardDark" draggable="true ">
             <div class="cardTag">
               <span class="TagName">Feature</span>
               <span class="X"><i class="fa-solid fa-xmark"></i></span>
@@ -113,28 +48,28 @@
           </div>
         </div>
 
-        <div class="classFoot">
+        <div class="classFoot darkFoot">
           <i class="fa-solid fa-plus"></i>
           <span class="classFootText">Add a card</span>
         </div>
       </div>
 
-      <div id="in-progress" class="genre">
+      <div id="in-progress" class="genre genreDark">
         <div class="classHead">
           <i class="fa-solid fa-circle" id="indi2"></i>
           <span class="classHeadText">In - Progress</span>
         </div>
-        <div class="classFoot">
+        <div class="classFoot darkFoot">
           <i class="fa-solid fa-plus"></i>
           <span class="classFootText">Add a card</span>
         </div>
       </div>
-      <div id="done" class="genre">
+      <div id="done" class="genre genreDark">
         <div class="classHead">
           <i class="fa-solid fa-circle" id="indi3"></i>
           <span class="classHeadText">Done</span>
         </div>
-        <div class="classFoot">
+        <div class="classFoot darkFoot">
           <i class="fa-solid fa-plus"></i>
           <span class="classFootText">Add a card</span>
         </div>

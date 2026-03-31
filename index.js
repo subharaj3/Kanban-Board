@@ -56,24 +56,24 @@ mode.addEventListener("click", () => {
 const lightmode = function () {
   mode.classList.remove("fa-moon");
   mode.classList.add("fa-sun");
-  contentHeader.style.color = "black";
-  contentHeader.style.backgroundColor = "#dbdbdb";
-  board.style.color = "black";
-  board.style.backgroundColor = "#fff";
+  contentHeader.classList.remove("darkHeader");
+  contentHeader.classList.add("lightHeader");
+  board.classList.remove("darkBoard");
+  board.classList.add("lightBoard");
   for (let i = 0; i < genre.length; i++) {
     const e = genre[i];
-    e.style.color = "black";
-    e.style.backgroundColor = "#cfcfcf";
+    e.classList.remove("genreDark");
+    e.classList.add("genreLight");
   }
   for (let i = 0; i < classFoot.length; i++) {
     const e = classFoot[i];
-    e.style.color = "black";
-    e.style.backgroundColor = "#b9b9b9";
+    e.classList.remove("darkFoot");
+    e.classList.add("lightFoot");
   }
   for (let i = 0; i < card.length; i++) {
     const e = card[i];
-    e.style.color = "black";
-    e.style.backgroundColor = "#ffffff";
+    e.classList.add("cardLight");
+    e.classList.remove("cardDark");
   }
   for (let i = 0; i < classHeadText.length; i++) {
     const e = classHeadText[i];
@@ -83,32 +83,32 @@ const lightmode = function () {
     const e = X[i];
     e.style.color = "black";
   }
-  renamer.style.backgroundColor = "white";
-  renamer.style.color = "black";
+  renamer.classList.remove("renamerDark");
+  renamer.classList.add("renamerLight");
   themeBool = true;
 };
 
 const darkmode = function () {
   mode.classList.remove("fa-sun");
   mode.classList.add("fa-moon");
-  contentHeader.style.color = "white";
-  contentHeader.style.backgroundColor = "#4c4c4c";
-  board.style.color = "white";
-  board.style.backgroundColor = "#2f2f2f";
+  contentHeader.classList.remove("lightHeader");
+  contentHeader.classList.add("darkHeader");
+  board.classList.remove("lightBoard");
+  board.classList.add("darkBoard");
   for (let i = 0; i < genre.length; i++) {
     const e = genre[i];
-    e.style.color = "white";
-    e.style.backgroundColor = "#1f1f1f";
+    e.classList.remove("genreLight");
+    e.classList.add("genreDark");
   }
   for (let i = 0; i < classFoot.length; i++) {
     const e = classFoot[i];
-    e.style.color = "white";
-    e.style.backgroundColor = "#3f3f3f";
+    e.classList.remove("lightFoot");
+    e.classList.add("darkFoot");
   }
   for (let i = 0; i < card.length; i++) {
     const e = card[i];
-    e.style.color = "white";
-    e.style.backgroundColor = "#2f2f2f";
+    e.classList.remove("cardLight");
+    e.classList.add("cardDark");
   }
   for (let i = 0; i < classHeadText.length; i++) {
     const e = classHeadText[i];
@@ -118,7 +118,7 @@ const darkmode = function () {
     const e = X[i];
     e.style.color = "white";
   }
-  renamer.style.backgroundColor = "#2f2f2f";
-  renamer.style.color = "white";
+  renamer.classList.remove("renamerLight");
+  renamer.classList.add("renamerDark");
   themeBool = false;
 };
