@@ -3,8 +3,34 @@ body {
   padding: 0;
 }
 
+p{
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  background-color: #1f1f1f;
+  color: #fff;
+  border: none;
+  outline: none;
+  height: 8%;
+  border-radius: 0.5em;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+select {
+  background-color: #1f1f1f;
+  color: #fff;
+  border: none;
+  outline: none;
+  height: 7%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
 #contentHeader {
-  height: 2.5em;
+  height: 5vh;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -34,7 +60,7 @@ body {
 #board {
   background-size: cover;
   background-position: center;
-  height: 95.5vh;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -107,6 +133,7 @@ body {
   box-sizing: border-box;
   bottom: 0;
   left: 0;
+  user-select: none;
 }
 
 .classFootText {
@@ -194,7 +221,6 @@ body {
 }
 
 #renamer {
-  color: white;
   height: 80%;
   box-sizing: border-box;
   font-size: 0.9rem;
@@ -230,4 +256,74 @@ body {
 
 .lightFoot:hover {
   background-color: #919191;
+}
+
+.cardPopUp {
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  /* Let the content decide the height */
+  max-height: 75%;
+  /* Prevent it from growing taller than the container */
+  overflow-y: auto;
+  /* Add a scrollbar if the content gets too long */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Perfectly centers it horizontally */
+  bottom: calc(6% + 10px);
+  /* Anchors it exactly above the footer */
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: #3f3f3f;
+  gap: 0.8em;
+  visibility: hidden;
+  z-index: 10;
+  /* Ensures it sits on top of your existing cards */
+  border-radius: 0.5em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  /* Adds a drop shadow for depth */
+}
+
+.lightCardPopUp{
+  background-color: #919191;
+}
+
+.assignee-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: #1f1f1f;
+  padding: 0.8em;
+  border-radius: 0.5em;
+}
+
+.assignee-checkboxes label {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+/* Fix the checkbox default styling so it matches your dark theme */
+.assignee-checkboxes input[type="checkbox"] {
+  height: auto;
+  width: auto;
+  accent-color: orange;
+  /* Matches your tag color */
+}
+
+.PopUpBtns{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.PopUpBtn{
+  height: 2em;
+  width: 6em;
 }

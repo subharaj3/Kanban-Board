@@ -1,10 +1,11 @@
 const contentHeader = document.getElementById("contentHeader");
 const board = document.getElementById("board");
 const genre = document.getElementsByClassName("genre");
-const classFoot = document.getElementsByClassName("classFoot");
+const classFoot = document.querySelectorAll(".classFoot");
 const card = document.getElementsByClassName("card");
 const classHeadText = document.getElementsByClassName("classHeadText");
 const X = document.getElementsByClassName("X");
+const cardPopUp = document.querySelectorAll(".cardPopUp");
 
 //date functionality
 const boardDate = document.getElementById("boardDate");
@@ -60,6 +61,10 @@ const lightmode = function () {
   contentHeader.classList.add("lightHeader");
   board.classList.remove("darkBoard");
   board.classList.add("lightBoard");
+  for (let i = 0; i < cardPopUp.length; i++) {
+    const e = cardPopUp[i];
+    e.classList.add("lightCardPopUp");
+  }
   for (let i = 0; i < genre.length; i++) {
     const e = genre[i];
     e.classList.remove("genreDark");
@@ -95,6 +100,10 @@ const darkmode = function () {
   contentHeader.classList.add("darkHeader");
   board.classList.remove("lightBoard");
   board.classList.add("darkBoard");
+  for (let i = 0; i < cardPopUp.length; i++) {
+    const e = cardPopUp[i];
+    e.classList.remove("lightCardPopUp");
+  }
   for (let i = 0; i < genre.length; i++) {
     const e = genre[i];
     e.classList.remove("genreLight");
@@ -122,3 +131,20 @@ const darkmode = function () {
   renamer.classList.add("renamerDark");
   themeBool = false;
 };
+
+classFoot.forEach((btn) => {
+  let popUpBool = false;
+  btn.addEventListener("click", function (e) {
+    if (!popUpBool) {
+      e.currentTarget.previousElementSibling.style.visibility = "visible";
+      popUpBool = true;
+    } else {
+      e.currentTarget.previousElementSibling.style.visibility = "hidden";
+      popUpBool = false;
+    }
+  });
+});
+
+function cardMaker(e) {
+  console.log(e);
+}
