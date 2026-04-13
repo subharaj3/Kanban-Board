@@ -1,3 +1,13 @@
+const cardData = [];
+// window.addEventListener("load", () => {
+//   cardData.forEach((card) => {
+//     cardRender(card);
+//   });
+// })
+
+// function cardRender() {
+
+// }
 const contentHeader = document.getElementById("contentHeader");
 const board = document.getElementById("board");
 const genre = document.getElementsByClassName("genre");
@@ -133,18 +143,44 @@ const darkmode = function () {
 };
 
 classFoot.forEach((btn) => {
-  let popUpBool = false;
   btn.addEventListener("click", function (e) {
-    if (!popUpBool) {
-      e.currentTarget.previousElementSibling.style.visibility = "visible";
-      popUpBool = true;
+    const popUp = e.currentTarget.previousElementSibling;
+
+    if (popUp.style.visibility === "visible") {
+      popUp.style.visibility = "hidden";
     } else {
-      e.currentTarget.previousElementSibling.style.visibility = "hidden";
-      popUpBool = false;
+      popUp.style.visibility = "visible";
     }
   });
 });
 
-function cardMaker(e) {
-  console.log(e);
+function taskMaker(e) {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  const newTaskData = {
+    tag: formData.get("TaskTag"),
+    name: formData.get("TaskName"),
+    desc: formData.get("TaskDesc"),
+    priority: formData.get("prio"),
+    // .getAll() is used for checkboxes since there can be more than one!
+    assignees: formData.getAll("taskAssignee"),
+  };
+
+  cardData.push(newTaskData);
+
+  form.reset();
+  form.style.visibility = "hidden";
 }
+
+cardPopUp.forEach((form) => {
+  form.addEventListener("submit", taskMaker);
+
+  const cardCancel = form.querySelector(".cardCancel");
+  cardCancel.addEventListener("click", () => {
+    form.reset();
+    form.style.visibility = "hidden";
+  });
+});

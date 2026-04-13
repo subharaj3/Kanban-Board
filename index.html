@@ -47,13 +47,16 @@
             </div>
           </div>
         </div>
-        <div class="cardPopUp">
+        <form class="cardPopUp">
           <p>Provide a Task Tag</p>
-          <input type="text">
+          <input type="text" name="TaskTag">
+
           <p>Provide a Task Name</p>
-          <input type="text">
+          <input type="text" name="TaskName">
+
           <p>Provide a Task Description</p>
-          <input type="text">
+          <input type="text" name="TaskDesc">
+
           <p>Provide Task's Priority</p>
           <select name="prio" id="prio">
             <option value="" disabled selected>---Select---</option>
@@ -61,17 +64,18 @@
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
+
           <p>Select Task Assignees</p>
           <div class="assignee-checkboxes">
-            <label><input type="checkbox" value="Amit"> Amit</label>
-            <label><input type="checkbox" value="Suresh"> Suresh</label>
-            <label><input type="checkbox" value="Ramesh"> Ramesh</label>
+            <label><input type="checkbox" value="Amit" name="taskAssignee"> Amit</label>
+            <label><input type="checkbox" value="Suresh" name="taskAssignee"> Suresh</label>
+            <label><input type="checkbox" value="Ramesh" name="taskAssignee"> Ramesh</label>
           </div>
           <div class="PopUpBtns">
             <button class="PopUpBtn">Submit</button>
-            <button class="PopUpBtn">Cancel</button>
+            <button class="PopUpBtn cardCancel">Cancel</button>
           </div>
-        </div>
+        </form>
         <div class="classFoot darkFoot">
           <i class="fa-solid fa-plus"></i>
           <span class="classFootText">Add a card</span>
@@ -83,13 +87,16 @@
           <i class="fa-solid fa-circle" id="indi2"></i>
           <span class="classHeadText">In - Progress</span>
         </div>
-        <div class="cardPopUp">
+        <form class="cardPopUp">
           <p>Provide a Task Tag</p>
-          <input type="text">
+          <input type="text" name="TaskTag">
+
           <p>Provide a Task Name</p>
-          <input type="text">
+          <input type="text" name="TaskName">
+
           <p>Provide a Task Description</p>
-          <input type="text">
+          <input type="text" name="TaskDesc">
+          
           <p>Provide Task's Priority</p>
           <select name="prio" id="prio">
             <option value="" disabled selected>---Select---</option>
@@ -97,17 +104,18 @@
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
+
           <p>Select Task Assignees</p>
-          <div class="assignee-checkboxes">
-            <label><input type="checkbox" value="Amit"> Amit</label>
-            <label><input type="checkbox" value="Suresh"> Suresh</label>
-            <label><input type="checkbox" value="Ramesh"> Ramesh</label>
+          <div class="assignee-checkboxes" name="TaskAssignee">
+            <label><input type="checkbox" value="Amit" name="taskAssignee"> Amit</label>
+            <label><input type="checkbox" value="Suresh" name="taskAssignee"> Suresh</label>
+            <label><input type="checkbox" value="Ramesh" name="taskAssignee"> Ramesh</label>
           </div>
           <div class="PopUpBtns">
             <button class="PopUpBtn">Submit</button>
-            <button class="PopUpBtn">Cancel</button>
+            <button class="PopUpBtn cardCancel">Cancel</button>
           </div>
-        </div>
+        </form>
         <div class="classFoot darkFoot">
           <i class="fa-solid fa-plus"></i>
           <span class="classFootText">Add a card</span>
@@ -118,13 +126,16 @@
           <i class="fa-solid fa-circle" id="indi3"></i>
           <span class="classHeadText">Done</span>
         </div>
-        <div class="cardPopUp">
+        <form class="cardPopUp">
           <p>Provide a Task Tag</p>
-          <input type="text">
+          <input type="text" name="TaskTag">
+
           <p>Provide a Task Name</p>
-          <input type="text">
+          <input type="text" name="TaskName">
+
           <p>Provide a Task Description</p>
-          <input type="text">
+          <input type="text" name="TaskDesc">
+
           <p>Provide Task's Priority</p>
           <select name="prio" id="prio">
             <option value="" disabled selected>---Select---</option>
@@ -132,17 +143,19 @@
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
+
           <p>Select Task Assignees</p>
           <div class="assignee-checkboxes">
-            <label><input type="checkbox" value="Amit"> Amit</label>
-            <label><input type="checkbox" value="Suresh"> Suresh</label>
-            <label><input type="checkbox" value="Ramesh"> Ramesh</label>
+            <label><input type="checkbox" value="Amit" name="taskAssignee"> Amit</label>
+            <label><input type="checkbox" value="Suresh" name="taskAssignee"> Suresh</label>
+            <label><input type="checkbox" value="Ramesh" name="taskAssignee"> Ramesh</label>
           </div>
+
           <div class="PopUpBtns">
             <button class="PopUpBtn">Submit</button>
-            <button class="PopUpBtn">Cancel</button>
+            <button class="PopUpBtn cardCancel">Cancel</button>
           </div>
-        </div>
+        </form>
         <div class="classFoot darkFoot">
           <i class="fa-solid fa-plus"></i>
           <span class="classFootText">Add a card</span>
