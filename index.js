@@ -1,13 +1,36 @@
 const cardData = [];
-// window.addEventListener("load", () => {
-//   cardData.forEach((card) => {
-//     cardRender(card);
-//   });
-// })
 
-// function cardRender() {
+window.addEventListener("load", () => {
+  cardData.forEach((card) => {
+    cardRender(card);
+  });
+});
 
-// }
+function cardRender(card) {
+  const taskCard = document.createElement("div");
+  taskCard.classList.add("card");
+  taskCard.classList.add("cardDark");
+  taskCard.id = card.id;
+  taskCard.innerHTML = `
+            <div class="cardTag">
+              <span class="TagName">${card.tag}</span>
+              <span class="X"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <div class="cardName">${card.name}</div>
+            <span class="cardDesc">${card.desc}</span>
+            <div class="cardDet">
+              <span class="priority">
+                <i class="fa-solid fa-circle-info"></i>
+                ${card.priority}
+              </span>
+              <span class="assigne">${card.assignees}</span>
+            </div>
+          `;
+
+  const CardGenre = document.getElementById(card.type).childNodes[3];
+  CardGenre.appendChild(taskCard);
+}
+
 const contentHeader = document.getElementById("contentHeader");
 const board = document.getElementById("board");
 const genre = document.getElementsByClassName("genre");
@@ -27,6 +50,7 @@ let renameBool = false;
 const renameIcon = document.getElementById("renameIcon");
 const renamer = document.getElementById("renamer");
 const boardName = document.getElementById("boardName");
+
 renameIcon.addEventListener("click", () => {
   if (!renameBool) {
     renameDisplayer();
@@ -158,6 +182,7 @@ function taskMaker(e) {
   e.preventDefault();
 
   const form = e.currentTarget;
+  const formGenre = e.currentTarget.parentElement.id;
   const formData = new FormData(form);
 
   const newTaskData = {
@@ -165,11 +190,19 @@ function taskMaker(e) {
     name: formData.get("TaskName"),
     desc: formData.get("TaskDesc"),
     priority: formData.get("prio"),
-    // .getAll() is used for checkboxes since there can be more than one!
     assignees: formData.getAll("taskAssignee"),
+    type: formGenre,
+    id: Date.now(),
   };
 
-  cardData.push(newTaskData);
+  if (
+    newTaskData.tag !== "" ||
+    newTaskData.name !== "" ||
+    newTaskData.desc !== ""
+  ) {
+    cardRender(newTaskData);
+    cardData.push(newTaskData);
+  }
 
   form.reset();
   form.style.visibility = "hidden";
@@ -184,3 +217,23 @@ cardPopUp.forEach((form) => {
     form.style.visibility = "hidden";
   });
 });
+
+function cardRemover(e) {
+  let cardId;
+
+  if (e.target && e.target.matches(".X")) {
+    cardId = e.target.parentElement.parentElement.id;
+    e.target.parentElement.parentElement.remove();
+  } else if (e.target && e.target.matches(".fa-xmark")) {
+    cardId = e.target.parentElement.parentElement.parentElement.id;
+    e.target.parentElement.parentElement.parentElement.remove();
+  }
+
+  for (let i = cardData.length - 1; i >= 0; i--) {
+    if (cardData[i].id == cardId) {
+      cardData.splice(i, 1);
+    }
+  }
+}
+
+document.getElementById("board").addEventListener("click", cardRemover);
