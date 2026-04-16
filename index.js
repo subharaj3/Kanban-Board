@@ -1,15 +1,28 @@
 const cardData = [];
 
 window.addEventListener("load", () => {
-  cardData.forEach((card) => {
-    cardRender(card);
-  });
+  const storageData = localStorage.getItem("myData");
+
+  if (storageData) {
+    const cardData = JSON.parse(storageData);
+    cardData.forEach((card) => {
+      cardRender(card);
+    });
+  }
 });
 
 function cardRender(card) {
   const taskCard = document.createElement("div");
   taskCard.classList.add("card");
-  taskCard.classList.add("cardDark");
+
+  const boardElement = document.getElementById("board");
+
+  if (boardElement.classList.contains("lightBoard")) {
+    taskCard.classList.add("cardLight");
+  } else {
+    taskCard.classList.add("cardDark");
+  }
+
   taskCard.id = card.id;
   taskCard.innerHTML = `
             <div class="cardTag">
@@ -27,7 +40,9 @@ function cardRender(card) {
             </div>
           `;
 
-  const CardGenre = document.getElementById(card.type).childNodes[3];
+  const CardGenre = document
+    .getElementById(card.type)
+    .querySelector(".cardContainer");
   CardGenre.appendChild(taskCard);
 }
 
@@ -118,10 +133,6 @@ const lightmode = function () {
     const e = classHeadText[i];
     e.style.color = "black";
   }
-  for (let i = 0; i < X.length; i++) {
-    const e = X[i];
-    e.style.color = "black";
-  }
   renamer.classList.remove("renamerDark");
   renamer.classList.add("renamerLight");
   themeBool = true;
@@ -155,10 +166,6 @@ const darkmode = function () {
   }
   for (let i = 0; i < classHeadText.length; i++) {
     const e = classHeadText[i];
-    e.style.color = "white";
-  }
-  for (let i = 0; i < X.length; i++) {
-    const e = X[i];
     e.style.color = "white";
   }
   renamer.classList.remove("renamerLight");
@@ -202,6 +209,9 @@ function taskMaker(e) {
   ) {
     cardRender(newTaskData);
     cardData.push(newTaskData);
+
+    const stringData = JSON.stringify(cardData);
+    localStorage.setItem("myData", stringData);
   }
 
   form.reset();
@@ -219,19 +229,21 @@ cardPopUp.forEach((form) => {
 });
 
 function cardRemover(e) {
-  let cardId;
+  const deleteBtn = e.target.closest(".X");
 
-  if (e.target && e.target.matches(".X")) {
-    cardId = e.target.parentElement.parentElement.id;
-    e.target.parentElement.parentElement.remove();
-  } else if (e.target && e.target.matches(".fa-xmark")) {
-    cardId = e.target.parentElement.parentElement.parentElement.id;
-    e.target.parentElement.parentElement.parentElement.remove();
-  }
+  if (deleteBtn) {
+    const contain = deleteBtn.closest(".card");
 
-  for (let i = cardData.length - 1; i >= 0; i--) {
-    if (cardData[i].id == cardId) {
-      cardData.splice(i, 1);
+    if (contain) {
+      const cardId = contain.id;
+
+      contain.remove();
+
+      for (let i = cardData.length - 1; i >= 0; i--) {
+        if (cardData[i].id == cardId) {
+          cardData.splice(i, 1);
+        }
+      }
     }
   }
 }
