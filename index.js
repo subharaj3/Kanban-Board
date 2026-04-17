@@ -1,10 +1,14 @@
 let cardData = [];
 
+function saveData() {
+  localStorage.setItem("myData", JSON.stringify(cardData));
+}
+
 window.addEventListener("load", () => {
   const storageData = localStorage.getItem("myData");
 
   if (storageData) {
-    const cardData = JSON.parse(storageData);
+    cardData = JSON.parse(storageData);
     cardData.forEach((card) => {
       cardRender(card);
     });
@@ -14,14 +18,6 @@ window.addEventListener("load", () => {
 function cardRender(card) {
   const taskCard = document.createElement("div");
   taskCard.classList.add("card");
-
-  const boardElement = document.getElementById("board");
-
-  if (boardElement.classList.contains("lightBoard")) {
-    taskCard.classList.add("cardLight");
-  } else {
-    taskCard.classList.add("cardDark");
-  }
 
   taskCard.id = card.id;
 
@@ -98,85 +94,16 @@ const renameRemover = function () {
 };
 
 //theme functionality
-let themeBool = false;
 const mode = document.getElementById("mode");
 mode.addEventListener("click", () => {
-  if (!themeBool) {
-    lightmode();
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    mode.classList.replace("fa-moon", "fa-sun");
   } else {
-    darkmode();
+    mode.classList.replace("fa-sun", "fa-moon");
   }
 });
-
-const lightmode = function () {
-  mode.classList.remove("fa-moon");
-  mode.classList.add("fa-sun");
-  contentHeader.classList.remove("darkHeader");
-  contentHeader.classList.add("lightHeader");
-  board.classList.remove("darkBoard");
-  board.classList.add("lightBoard");
-  for (let i = 0; i < cardPopUp.length; i++) {
-    const e = cardPopUp[i];
-    e.classList.add("lightCardPopUp");
-  }
-  for (let i = 0; i < genre.length; i++) {
-    const e = genre[i];
-    e.classList.remove("genreDark");
-    e.classList.add("genreLight");
-  }
-  for (let i = 0; i < classFoot.length; i++) {
-    const e = classFoot[i];
-    e.classList.remove("darkFoot");
-    e.classList.add("lightFoot");
-  }
-  for (let i = 0; i < card.length; i++) {
-    const e = card[i];
-    e.classList.add("cardLight");
-    e.classList.remove("cardDark");
-  }
-  for (let i = 0; i < classHeadText.length; i++) {
-    const e = classHeadText[i];
-    e.style.color = "black";
-  }
-  renamer.classList.remove("renamerDark");
-  renamer.classList.add("renamerLight");
-  themeBool = true;
-};
-
-const darkmode = function () {
-  mode.classList.remove("fa-sun");
-  mode.classList.add("fa-moon");
-  contentHeader.classList.remove("lightHeader");
-  contentHeader.classList.add("darkHeader");
-  board.classList.remove("lightBoard");
-  board.classList.add("darkBoard");
-  for (let i = 0; i < cardPopUp.length; i++) {
-    const e = cardPopUp[i];
-    e.classList.remove("lightCardPopUp");
-  }
-  for (let i = 0; i < genre.length; i++) {
-    const e = genre[i];
-    e.classList.remove("genreLight");
-    e.classList.add("genreDark");
-  }
-  for (let i = 0; i < classFoot.length; i++) {
-    const e = classFoot[i];
-    e.classList.remove("lightFoot");
-    e.classList.add("darkFoot");
-  }
-  for (let i = 0; i < card.length; i++) {
-    const e = card[i];
-    e.classList.remove("cardLight");
-    e.classList.add("cardDark");
-  }
-  for (let i = 0; i < classHeadText.length; i++) {
-    const e = classHeadText[i];
-    e.style.color = "white";
-  }
-  renamer.classList.remove("renamerLight");
-  renamer.classList.add("renamerDark");
-  themeBool = false;
-};
 
 classFoot.forEach((btn) => {
   btn.addEventListener("click", function (e) {
@@ -215,8 +142,7 @@ function taskMaker(e) {
     cardRender(newTaskData);
     cardData.push(newTaskData);
 
-    const stringData = JSON.stringify(cardData);
-    localStorage.setItem("myData", stringData);
+    saveData();
   }
 
   form.reset();
@@ -246,8 +172,7 @@ function cardRemover(e) {
 
       cardData = cardData.filter((card) => card.id != cardId);
 
-      const stringData = JSON.stringify(cardData);
-      localStorage.setItem("myData", stringData);
+      saveData();
     }
   }
 }
@@ -283,8 +208,7 @@ cardContainers.forEach((container) => {
           }
         }
 
-        const stringData = JSON.stringify(cardData);
-        localStorage.setItem("myData", stringData);
+        saveData();
       }
     }
   });

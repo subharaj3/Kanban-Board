@@ -41,16 +41,9 @@ select {
   backdrop-filter: blur(5px);
   padding: 0 0.5em;
   gap: 1em;
-}
-
-.darkHeader {
-  background-color: #4c4c4c;
-  color: white;
-}
-
-.lightHeader {
-  background-color: #dbdbdb;
-  color: black;
+  background-color: #1a1a1a;
+    color: white;
+    border-bottom: 1px solid #2d2d2d;
 }
 
 #boardName {
@@ -66,14 +59,6 @@ select {
   justify-content: space-evenly;
 }
 
-.darkBoard {
-  background-color: #2f2f2f;
-}
-
-.lightBoard {
-  background-color: #fff;
-}
-
 .genre {
   width: 31%;
   height: 92%;
@@ -84,16 +69,6 @@ select {
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
-}
-
-.genreDark {
-  background-color: #1f1f1f;
-  color: white;
-}
-
-.genreLight {
-  background-color: #cfcfcf;
-  color: black;
 }
 
 .classHead {
@@ -134,6 +109,17 @@ select {
   bottom: 0;
   left: 0;
   user-select: none;
+  background-color: transparent;
+  color: #a0a0a0;
+  border-top: 1px solid #2a2a2a;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  transition: background-color 0.2s ease;
+}
+
+.classFoot:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
 }
 
 .classFootText {
@@ -162,16 +148,6 @@ select {
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.cardDark {
-  background-color: #2f2f2f;
-  color: white;
-}
-
-.cardLight {
-  background-color: #fff;
-  color: black;
 }
 
 .cardTag {
@@ -230,34 +206,6 @@ select {
   outline: none;
 }
 
-.renamerDark {
-  background-color: #1f1f1f;
-  color: white;
-}
-
-.renamerLight {
-  background-color: #fff;
-  color: black;
-}
-
-.darkFoot {
-  background-color: #3f3f3f;
-  color: white;
-}
-
-.darkFoot:hover {
-  background-color: #747474;
-}
-
-.lightFoot {
-  background-color: #b9b9b9;
-  color: #000;
-}
-
-.lightFoot:hover {
-  background-color: #919191;
-}
-
 .cardPopUp {
   width: 90%;
   max-width: 300px;
@@ -285,10 +233,6 @@ select {
   border-radius: 0.5em;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   /* Adds a drop shadow for depth */
-}
-
-.lightCardPopUp{
-  background-color: #919191;
 }
 
 .assignee-checkboxes {
@@ -326,4 +270,144 @@ select {
 .PopUpBtn{
   height: 2em;
   width: 6em;
+}
+
+/* =========================================
+   HIGH CONTRAST LIGHT MODE
+   ========================================= */
+body.light-mode #board {
+  background-color: #e9ecef;
+  /* A cooler, more defined gray background */
+}
+
+body.light-mode #contentHeader {
+  background-color: #ffffff;
+  color: #212529;
+  /* Near-black for crisp readability */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .genre {
+  background-color: #f8f9fa;
+  /* Very bright gray column */
+  color: #212529;
+  border: 1px solid #dee2e6;
+  /* Crisp border defines the column edges */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .classHead {
+  color: #212529;
+  font-weight: bold;
+}
+
+body.light-mode .card {
+  background-color: #ffffff;
+  /* Pure white card */
+  color: #212529;
+  /* Stronger shadow makes it truly pop off the screen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e9ecef;
+  border-radius: 0.3em;
+}
+
+body.light-mode .X {
+  color: #6c757d;
+}
+
+body.light-mode .X:hover {
+  color: #dc3545;
+  /* Make the delete button red on hover for clarity! */
+}
+
+/* Footer & Buttons */
+body.light-mode .classFoot {
+  background-color: transparent;
+  color: #495057;
+  border-top: 1px solid #dee2e6;
+  /* Clear separation line */
+}
+
+body.light-mode .classFoot:hover {
+  background-color: #e2e6ea;
+  color: #212529;
+}
+
+/* Popups and Inputs in Light Mode */
+body.light-mode .cardPopUp {
+  background-color: #ffffff;
+  color: #212529;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  /* Deep shadow for the popup */
+  border: 1px solid #dee2e6;
+}
+
+body.light-mode input,
+body.light-mode select,
+body.light-mode .assignee-checkboxes {
+  background-color: #ffffff;
+  color: #212529;
+  border: 2px solid #ced4da;
+  /* Stronger borders on inputs */
+}
+
+body.light-mode .assignee-checkboxes label {
+  color: #212529;
+}
+
+body.light-mode #renamer {
+  background-color: #ffffff;
+  color: #212529;
+  border: 2px solid #ced4da;
+}
+
+#board {
+  background-size: cover;
+  background-position: center;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #121212;
+  /* Deep dark background */
+}
+
+.genre {
+  width: 31%;
+  height: 92%;
+  margin: 1em 0.5em;
+  padding: 1em;
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+
+  /* Dark mode column colors */
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #2a2a2a;
+  /* Subtle border to define the column */
+  border-radius: 0.5em;
+}
+
+.card {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 1em;
+  height: 30%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Dark mode card colors */
+  background-color: #2d2d2d;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  /* Floats the card above the column */
+  border: 1px solid #3d3d3d;
+  /* Crisp edge */
+  border-radius: 0.3em;
 }
