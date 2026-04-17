@@ -1,4 +1,4 @@
-const cardData = [];
+let cardData = [];
 
 window.addEventListener("load", () => {
   const storageData = localStorage.getItem("myData");
@@ -24,8 +24,13 @@ function cardRender(card) {
   }
 
   taskCard.id = card.id;
+
+  taskCard.addEventListener("dragstart", (e) => {
+    e.dataTransfer.setData("text/plain", taskCard.id);
+  });
+
   taskCard.innerHTML = `
-            <div class="cardTag">
+            <div class="cardTag" draggable="true">
               <span class="TagName">${card.tag}</span>
               <span class="X"><i class="fa-solid fa-xmark"></i></span>
             </div>
@@ -239,13 +244,48 @@ function cardRemover(e) {
 
       contain.remove();
 
-      for (let i = cardData.length - 1; i >= 0; i--) {
-        if (cardData[i].id == cardId) {
-          cardData.splice(i, 1);
-        }
-      }
+      cardData = cardData.filter((card) => card.id != cardId);
+
+      const stringData = JSON.stringify(cardData);
+      localStorage.setItem("myData", stringData);
     }
   }
 }
 
 document.getElementById("board").addEventListener("click", cardRemover);
+
+const cardContainers = document.querySelectorAll(".cardContainer");
+
+cardContainers.forEach((container) => {
+  container.addEventListener("dragover", function (e) {
+    e.preventDefault();
+  });
+
+  container.addEventListener("drop", function (e) {
+    e.preventDefault();
+
+    const dragId = e.dataTransfer.getData("text/plain");
+
+    const draggedElement = document.getElementById(dragId);
+
+    if (draggedElement) {
+      const dropZone = e.target.closest(".cardContainer");
+      if (dropZone) {
+        dropZone.appendChild(draggedElement);
+
+        const newGenre = dropZone.parentElement.id;
+        console.log(newGenre);
+
+        for (let i = 0; i < cardData.length; i++) {
+          if (cardData[i].id == dragId) {
+            cardData[i].type = newGenre;
+            break;
+          }
+        }
+
+        const stringData = JSON.stringify(cardData);
+        localStorage.setItem("myData", stringData);
+      }
+    }
+  });
+});
